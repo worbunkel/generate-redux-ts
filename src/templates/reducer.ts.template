@@ -1,0 +1,20 @@
+import { <grts-c>State, Default<grts-c>State } from './<grts-hyphenated>.state';
+import { <grts-c>Action, <grts-c>Actions } from './<grts-hyphenated>.actions';
+
+/**
+ * The reducer for <grts-lc-spaced>
+ * @param prevState The current <grts-lc-spaced> state
+ * @param action A <grts-lc-spaced> Action
+ * @returns The new <grts-lc-spaced> state
+ */
+export const <grts-cc>Reducer = (
+  prevState: <grts-c>State = Default<grts-c>State,
+  { type, payload }: <grts-c>Action
+): <grts-c>State => {
+  switch (type) {
+    case <grts-c>Actions.ACTION_NAME: // TODO: Replace with action name and add other cases
+      return payload;
+    default:
+      return prevState;
+  }
+};

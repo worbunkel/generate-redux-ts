@@ -1,0 +1,19 @@
+import { pick } from 'lodash-es';
+import { RootState, select, composeActionCreatorsWithDispatch } from '../root.store';
+import { <grts-c>State } from './<grts-hyphenated>.state';
+import { <grts-c>ActionCreators } from './<grts-hyphenated>.actions';
+import { Observable } from 'rxjs';
+
+export type Connected<grts-c>State = <grts-c>State & typeof <grts-c>ActionCreators;
+
+export const connect<grts-c>State = (): Observable<Connected<grts-c>State> => {
+  const <grts-cc>State: Observable<Partial<RootState>> = select(select<grts-c>);
+  return <grts-cc>State.map(state => ({
+    ...state.<grts-cc>,
+    ...composeActionCreatorsWithDispatch(<grts-c>ActionCreators)
+  }));
+};
+
+export const select<grts-c> = (state: RootState): Pick<RootState, '<grts-cc>'> => {
+  return pick(state, '<grts-cc>');
+};

@@ -1,0 +1,4 @@
+export * from './<grts-hyphenated>.actions';
+export * from './<grts-hyphenated>.connect';
+export * from './<grts-hyphenated>.reducer';
+export * from './<grts-hyphenated>.state';

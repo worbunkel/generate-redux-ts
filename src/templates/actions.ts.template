@@ -1,0 +1,65 @@
+import { Dispatch } from 'redux';
+import { Observable, Subject } from 'rxjs';
+import { <grts-c>State } from './<grts-hyphenated>.state';
+
+/**
+ * The <grts-lc-spaced> action interface
+ */
+export interface <grts-c>Action {
+  type: string;
+  payload: <grts-c>State;
+}
+
+/**
+ * The possible <grts-lc-spaced> actions
+ */
+export const <grts-c>Actions = {
+  ACTION_NAME: '<grts-cc>/ACTION_NAME', // TODO: Replace action name
+};
+
+/**
+ * Action Creator to // TODO: Insert action creator detail here
+ */
+export const actionNameAsync = (actionNamePayload: actionNameType) => // Replace actionNameAsync
+  (dispatch: Dispatch<<grts-c>Action>, getState: () => any): void => {
+    dispatch({
+      type: <grts-c>Actions.ACTION_NAME_REQUEST, // Replace ACTION_NAME
+      payload: actionNamePayload
+    });
+
+    const { <grts-cc> } = getState();
+    actionNameRequest(<grts-cc>).subscribe(
+      () => {
+        dispatch({
+          type: <grts-c>Actions.ACTION_NAME_SUCCESS, // Replace ACTION_NAME
+          payload: null
+        });
+      },
+      () => {
+        dispatch({
+          type: <grts-c>Actions.ACTION_NAME_ERROR, // Replace ACTION_NAME,
+          payload: null
+        });
+      }
+    );
+  };
+
+const actionNameRequest = (<grts-cc>: <grts-c>State): Observable<boolean> => { // TODO: replace actionName
+  // TODO: replace with async call
+  return Observable.of(false);
+};
+
+export const actionName = (actionNamePayload: actionNameType) =>  // TODO: replace actionName
+  ({
+    type: <grts-c>Actions.ACTION_NAME,
+    payload: actionNamePayload
+  })
+
+/**
+ * The Action Creators for <grts-c>
+ */
+export const <grts-c>ActionCreators = {
+  // TODO: replace with action creator names
+  actionName,
+  actionNameAsync
+};

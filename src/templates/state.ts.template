@@ -1,0 +1,13 @@
+/**
+ * The <grts-lc-spaced> state interface
+ */
+export interface <grts-c>State {
+  // TODO: Insert state type here
+}
+
+/**
+ * The default <grts-lc-spaced> state
+ */
+export const Default<grts-c>State: <grts-c>State = {
+  // TODO: Insert default state here 
+};

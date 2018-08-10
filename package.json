@@ -1,0 +1,23 @@
+{
+  "name": "generate-redux-ts",
+  "version": "1.0.0",
+  "description": "A library to generate redux typescript files",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/worbunkel/generate-redux-ts.git"
+  },
+  "author": "Luke Brown (worbunkel@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/worbunkel/generate-redux-ts/issues"
+  },
+  "homepage": "https://github.com/worbunkel/generate-redux-ts#readme",
+  "dependencies": {
+    "jest": "^23.5.0",
+    "lodash": "^4.17.10"
+  }
+}
