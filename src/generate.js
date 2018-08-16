@@ -80,7 +80,7 @@ const resultTemplates = _.map(templates, replaceTemplates);
 _.each(resultTemplates, (resTemplate) => {
   try {
     const folders = _.split(pathToFile + hyphenatedNameParam, '/');
-    folders.forEach((folder, index) => {
+    folders.forEach((_folder, index) => {
       try {
         fs.mkdirSync('./' + _.slice(folders, 0, index + 1).join('/'));
       } catch (e) {
