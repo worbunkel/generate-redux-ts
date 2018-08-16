@@ -10,6 +10,6 @@ export interface <grts-c>State {
  * The default <grts-lc-spaced> state
  */
 export const Default<grts-c>State: <grts-c>State = {
-  // TODO: Insert default state here 
+  // TODO: Insert default state here
   toRemove: null
 };

@@ -5,7 +5,7 @@ describe('<grts-cc>Reducer', () => {
   describe('on {Action Name}', () => {
     it('should {do state manipulation logic based on the action}', () => { // TODO: Replace
       // Arrange (Set up the variables) // TODO: Remove comment
-      const prevState: <grts-c>State = Default<grts-c>State(); // TODO: Replace with whatever state is desired
+      const prevState: <grts-c>State = Default<grts-c>State; // TODO: Replace
       const action: <grts-c>Action = {
         type: <grts-c>Actions.ACTION_NAME, // TODO: Change to be action name
         payload: null // TODO: Insert action payload
@@ -15,7 +15,7 @@ describe('<grts-cc>Reducer', () => {
       const newState = <grts-cc>Reducer(prevState, action);
 
       // Assert (Expect the result) // TODO: Remove comment
-      const expectedResult = null; // TODO: replace with expected result
+      const expectedResult = true; // TODO: replace with expected result
       expect(newState).toEqual(expectedResult);
     });
   });

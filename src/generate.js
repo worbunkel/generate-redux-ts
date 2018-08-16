@@ -96,3 +96,52 @@ _.each(resultTemplates, (resTemplate) => {
     throw new Error('Error writing files');
   }
 });
+
+const rootStoreFilePath = path.join(process.cwd(), pathToFile, 'root.store.ts');
+
+const rootStoreText = fs.readFileSync(rootStoreFilePath, 'utf-8');
+
+let rootStoreTextLines = rootStoreText.split('\n');
+
+const lastImportLine = _.findLastIndex(rootStoreTextLines, line => _.includes(line, 'import'));
+
+const importText = `import { ${capitalizedNameParam}State, Default${capitalizedNameParam}State } from './${hyphenatedNameParam}/${hyphenatedNameParam}.state';
+import { ${camelCaseNameParam}Reducer } from './${hyphenatedNameParam}/${hyphenatedNameParam}.reducer';`;
+
+rootStoreTextLines.splice(lastImportLine + 1, 0, importText);
+
+const insertInSortedPositionAfterLine = (lines, afterLineText, sortText, insertText) => {
+  const afterLine = _.findIndex(lines, line => _.includes(line, afterLineText));
+
+  const insertLine = _.findIndex(
+    lines,
+    line => _.orderBy([line.trim(), sortText])[0] === sortText,
+    afterLine + 1
+  );
+
+  lines.splice(insertLine, 0, insertText);
+  return lines;
+}
+
+rootStoreTextLines = insertInSortedPositionAfterLine(
+  rootStoreTextLines,
+  'interface RootState',
+  camelCaseNameParam,
+  `  ${camelCaseNameParam}: ${capitalizedNameParam}State;`
+)
+
+rootStoreTextLines = insertInSortedPositionAfterLine(
+  rootStoreTextLines,
+  'combinedReducer',
+  camelCaseNameParam,
+  `  ${camelCaseNameParam}: ${camelCaseNameParam}Reducer,`
+)
+
+rootStoreTextLines = insertInSortedPositionAfterLine(
+  rootStoreTextLines,
+  'initialState',
+  camelCaseNameParam,
+  `  ${camelCaseNameParam}: Default${capitalizedNameParam}State,`
+)
+
+fs.writeFileSync(rootStoreFilePath, rootStoreTextLines.join('\n'), 'utf-8');
