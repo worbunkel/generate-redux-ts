@@ -1,11 +1,27 @@
 import { pick } from 'lodash-es';
 import { RootState, select, composeActionCreatorsWithDispatch } from '../root.store';
+import { ActionCreator } from '../../utils';
 import { <grts-c>State } from './<grts-hyphenated>.state';
 import { <grts-c>ActionCreators } from './<grts-hyphenated>.actions';
 import { Observable } from 'rxjs';
 
+// TODO: Use this only if there is not a 1 to 1 view to reducer relationship, if there is, use the rest of this file
+/**
+ * Returns the <grts-lc-spaced> action creators composed with the root store dispatch
+ * @returns The composed action creators for <grts-lc-spaced>
+ */
+export const get<grts-c>ComposedActionCreators = (): {
+  actionCreatorName: ActionCreator<<grts-c>Action> // TODO: Replace with all action creators
+} => composeActionCreatorsWithDispatch(<grts-c>ActionCreators);
+
+// TODO: Delete rest of file if there is not a 1 to 1 view to reducer relationship
 export type Connected<grts-c>State = <grts-c>State & typeof <grts-c>ActionCreators;
 
+/**
+ * Returns an observable which will push the <grts-lc-spaced> state and action creators
+ * to subscribers each time a chunk of the state that affects <grts-lc-spaced> is updated
+ * @returns An observable of the connected <grts-lc-spaced> state
+ */
 export const connect<grts-c>State = (): Observable<Connected<grts-c>State> => {
   const <grts-cc>State: Observable<Partial<RootState>> = select(select<grts-c>);
   return <grts-cc>State.map(state => ({
@@ -14,6 +30,11 @@ export const connect<grts-c>State = (): Observable<Connected<grts-c>State> => {
   }));
 };
 
+/**
+ * Grabs the feedback state from the application state
+ * @param state The application state
+ * @returns An object containing the feedback state
+ */
 export const select<grts-c> = (state: RootState): Pick<RootState, '<grts-cc>'> => {
   return pick(state, '<grts-cc>');
 };

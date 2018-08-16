@@ -1,5 +1,6 @@
 import { Dispatch } from 'redux';
 import { Observable, Subject } from 'rxjs';
+import { createCreator } from '../../utils';
 import { <grts-c>State } from './<grts-hyphenated>.state';
 
 /**
@@ -20,10 +21,10 @@ export const <grts-c>Actions = {
 /**
  * Action Creator to // TODO: Insert action creator detail here
  */
-export const actionNameAsync = (actionNamePayload: actionNameType) => // Replace actionNameAsync
+export const actionNameAsync = (actionNamePayload: actionNameType) => // TODO: Replace actionNameAsync
   (dispatch: Dispatch<<grts-c>Action>, getState: () => any): void => {
     dispatch({
-      type: <grts-c>Actions.ACTION_NAME_REQUEST, // Replace ACTION_NAME
+      type: <grts-c>Actions.ACTION_NAME_REQUEST, // TODO: Replace ACTION_NAME
       payload: actionNamePayload
     });
 
@@ -31,29 +32,30 @@ export const actionNameAsync = (actionNamePayload: actionNameType) => // Replace
     actionNameRequest(<grts-cc>).subscribe(
       () => {
         dispatch({
-          type: <grts-c>Actions.ACTION_NAME_SUCCESS, // Replace ACTION_NAME
+          type: <grts-c>Actions.ACTION_NAME_SUCCESS, // TODO: Replace ACTION_NAME
           payload: null
         });
       },
       () => {
         dispatch({
-          type: <grts-c>Actions.ACTION_NAME_ERROR, // Replace ACTION_NAME,
+          type: <grts-c>Actions.ACTION_NAME_ERROR, // TODO: Replace ACTION_NAME,
           payload: null
         });
       }
     );
   };
 
-const actionNameRequest = (<grts-cc>: <grts-c>State): Observable<boolean> => { // TODO: replace actionName
+const actionNameRequest = (<grts-cc>: <grts-c>State): Observable<boolean> => { // TODO: Replace actionName
   // TODO: replace with async call
   return Observable.of(false);
 };
 
-export const actionName = (actionNamePayload: actionNameType) =>  // TODO: replace actionName
-  ({
-    type: <grts-c>Actions.ACTION_NAME,
-    payload: actionNamePayload
-  })
+/**
+ * Action Creator to // TODO: Insert action creator detail here
+ * @param // TODO: Insert payload param name
+ * @returns An action to // TODO: Insert action detail here
+ */
+export const actionName = createCreator<<grts-c>Action>(<grts-c>Actions.ACTION_NAME); // TODO: Replace action names
 
 /**
  * The Action Creators for <grts-c>
