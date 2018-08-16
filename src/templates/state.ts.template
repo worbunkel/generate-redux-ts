@@ -3,6 +3,7 @@
  */
 export interface <grts-c>State {
   // TODO: Insert state type here
+  toRemove: any;
 }
 
 /**
@@ -10,4 +11,5 @@ export interface <grts-c>State {
  */
 export const Default<grts-c>State: <grts-c>State = {
   // TODO: Insert default state here 
+  toRemove: null
 };

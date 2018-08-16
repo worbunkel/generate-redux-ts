@@ -2,7 +2,7 @@ import { <grts-cc>Reducer } from './<grts-hyphenated>.reducer';
 import { <grts-c>Action, <grts-c>Actions } from './<grts-hyphenated>.actions';
 import { Default<grts-c>State, <grts-c>State } from './<grts-hyphenated>.state';
 describe('<grts-cc>Reducer', () => {
-  describe('on {Action Name}', () => 
+  describe('on {Action Name}', () => {
     it('should {do state manipulation logic based on the action}', () => { // TODO: Replace
       // Arrange (Set up the variables) // TODO: Remove comment
       const prevState: <grts-c>State = Default<grts-c>State(); // TODO: Replace with whatever state is desired
@@ -16,7 +16,7 @@ describe('<grts-cc>Reducer', () => {
 
       // Assert (Expect the result) // TODO: Remove comment
       const expectedResult = null; // TODO: replace with expected result
-      expect(result).toEqual(category);
+      expect(newState).toEqual(expectedResult);
     });
   });
 });

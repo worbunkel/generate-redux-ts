@@ -1,8 +1,8 @@
 import { pick } from 'lodash-es';
-import { RootState, select, composeActionCreatorsWithDispatch } from '../root.store';
+import { RootState, rootSelect, composeActionCreatorsWithDispatch } from '../root.store';
 import { ActionCreator } from '../../utils';
 import { <grts-c>State } from './<grts-hyphenated>.state';
-import { <grts-c>ActionCreators } from './<grts-hyphenated>.actions';
+import { <grts-c>ActionCreators, <grts-c>Action } from './<grts-hyphenated>.actions';
 import { Observable } from 'rxjs';
 
 // TODO: Use this only if there is not a 1 to 1 view to reducer relationship, if there is, use the rest of this file
@@ -23,7 +23,7 @@ export type Connected<grts-c>State = <grts-c>State & typeof <grts-c>ActionCreato
  * @returns An observable of the connected <grts-lc-spaced> state
  */
 export const connect<grts-c>State = (): Observable<Connected<grts-c>State> => {
-  const <grts-cc>State: Observable<Partial<RootState>> = select(select<grts-c>);
+  const <grts-cc>State = rootSelect(select<grts-c>);
   return <grts-cc>State.map(state => ({
     ...state.<grts-cc>,
     ...composeActionCreatorsWithDispatch(<grts-c>ActionCreators)
